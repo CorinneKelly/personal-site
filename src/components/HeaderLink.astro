@@ -16,6 +16,10 @@ const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
 <style lang="scss">
   .active {
     font-weight: 700;
-    border-bottom-color: var(--gray);
+    border-bottom: 4px solid rgb(var(--gray)) !important;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>

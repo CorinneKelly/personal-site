@@ -5,8 +5,15 @@ import { SITE_TITLE } from "../consts";
 
 <header>
   <nav>
-    <h2><a href="/">{SITE_TITLE}</a></h2>
-    <div>
+    <a href="/" class="name"
+      ><img id="selfie" src="/corinnekelly.jpg" height="40" width="40" /><img
+        id="drawing"
+        src="/coco-vector.png"
+        height="32"
+        width="32"
+      /><h2>{SITE_TITLE}</h2></a
+    >
+    <div class="links">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/resume">Resume</HeaderLink>
     </div>
@@ -67,37 +74,80 @@ import { SITE_TITLE } from "../consts";
     position: fixed;
     width: 100vw;
   }
-  h2 {
-    margin: 0;
-    font-size: 1em;
-  }
 
-  h2 a,
-  h2 a.active {
-    text-decoration: none;
-  }
   nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 60px;
-  }
-  nav a {
-    padding: 1em 0.5em;
-    color: var(--black);
-    border-bottom: 4px solid transparent;
-    text-decoration: none;
-    transition: all 0.3s var(--cubic-speed);
-    &:hover {
-      color: rgb(var(--gray));
-      transition: var(--cubic-speed) 0.3s ease-in;
-      transform: scale(1.05);
+    .links {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    a {
+      padding: 0 0.5em;
+      display: flex;
+      color: var(--black);
+      border-bottom: 4px solid transparent;
+      text-decoration: none;
+      transition: all 0.3s var(--cubic-speed);
+      &:hover {
+        color: rgb(var(--gray));
+        transition: var(--cubic-speed) 0.3s ease-in;
+      }
+      &.name {
+        margin: 0;
+        flex-direction: row;
+        gap: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        h2 {
+          font-size: 1em;
+        }
+        #selfie {
+          opacity: 1;
+          transform: rotateY(0deg);
+          transition: all 1s 0.5s ease;
+        }
+        #drawing {
+          transform: rotateY(90deg);
+          transition: all 1s ease;
+          margin-left: -40px;
+          opacity: 0;
+        }
+        &:hover {
+          h2 {
+            color: rgb(var(--gray));
+            transition: color 0.3s var(--cubic-speed);
+          }
+          #selfie {
+            opacity: 0;
+            transform: rotateY(90deg);
+            transition: all 1s ease;
+          }
+          #drawing {
+            opacity: 1;
+            transform: rotateY(0deg);
+            transition: all 1s 0.5s ease-out;
+          }
+        }
+      }
     }
   }
 
   .social-links,
   .social-links a {
     display: flex;
+  }
+  .social-links a {
+    &:hover {
+      color: rgb(var(--gray));
+      transition: var(--cubic-speed) 0.3s ease-in;
+      transform: scale(1.05);
+    }
   }
   @media (max-width: 720px) {
     .social-links {
