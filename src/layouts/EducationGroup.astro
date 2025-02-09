@@ -1,0 +1,44 @@
+---
+const { institution, field, institutionLink, logo } = Astro.props;
+---
+
+<style lang="scss">
+  .education-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 26px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease-in-out;
+    min-height: 100px;
+    &:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .title {
+      color: rgb(var(--gray-dark));
+      font-weight: 700;
+      font-size: 20px;
+    }
+    .text {
+      color: rgb(var(--gray-dark));
+      font-size: 18px;
+    }
+  }
+</style>
+<a class="education-group" href={institutionLink} target="_blank">
+  <img src={logo} height="100" width="100" />
+  <div>
+    <div>
+      <span class="title">Institution:</span><span class="text">
+        {institution}</span
+      >
+    </div>
+    <div>
+      <span class="title">Field:</span><span class="text"> {field}</span>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,63 @@
+---
+const { company, logo, role, team, dates, accomplishments, companyUrl } =
+  Astro.props;
+---
+
+<style lang="scss">
+  .employment-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    .employment-header {
+      padding: 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 26px;
+      border-radius: 16px;
+      text-decoration: none;
+      transition: box-shadow 0.3s ease-in-out;
+      color: rgb(var(--grey-dark));
+      &:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease-in-out;
+      }
+
+      .title {
+        color: rgb(var(--gray-dark));
+        font-weight: 700;
+        font-size: 20px;
+      }
+      .text {
+        color: rgb(var(--gray-dark));
+        font-size: 18px;
+      }
+    }
+    ul {
+      list-style-position: outside;
+      li {
+        margin-top: 1em;
+      }
+    }
+  }
+</style>
+<div class="employment-group">
+  <a class="employment-header" href={companyUrl} target="_blank">
+    <img src={logo} height="100" width="100" />
+    <div>
+      <div>
+        <span class="title">{company}</span><span class="text"> {dates}</span>
+      </div>
+      <div>
+        <span class="title">{role}</span><span class="text"> {team}</span>
+      </div>
+    </div>
+  </a>
+  <ul>
+    {accomplishments.map((accomplishment: string) => <li>{accomplishment}</li>)}
+  </ul>
+</div>
