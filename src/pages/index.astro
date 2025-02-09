@@ -12,8 +12,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     <style lang="scss">
       .home-page {
         padding-top: 60px;
-        .--title {
-          margin-bottom: 20px;
+        &__title {
+          margin: 50px 0;
+          text-align: center;
+        }
+        &__subtitle {
+          text-align: center;
         }
       }
     </style>
@@ -21,8 +25,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <body>
     <Header />
     <main class="home-page">
-      <h1 class="home-page--title">👋 Hello, World! 🌎</h1>
-      <h5>
+      <h1 class="home-page__title">👋 Hello, World! 🌎</h1>
+      <h5 class="home-page__subtitle">
         I'm Corinne Kelly -- a passionate Software Engineer and experienced Team
         Leader
       </h5>
