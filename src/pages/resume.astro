@@ -12,7 +12,12 @@ import EmploymentGroup from "../layouts/EmploymentGroup.astro";
     display: flex;
     flex-direction: column;
     gap: 20px;
+    scroll-margin-top: 40px;
     h2 {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .skills {
       text-align: center;
     }
   }
@@ -24,7 +29,7 @@ import EmploymentGroup from "../layouts/EmploymentGroup.astro";
   pubDate={new Date()}
   heroVideo="/womantyping.mp4"
 >
-  <section class="section-wrapper">
+  <section class="section-wrapper" id="education">
     <h2>Education</h2>
     <EducationGroup
       institution="Carnegie Mellon University"
@@ -39,7 +44,7 @@ import EmploymentGroup from "../layouts/EmploymentGroup.astro";
       field="Web Development Graduate"
     />
   </section>
-  <section class="section-wrapper">
+  <section class="section-wrapper" id="employment">
     <h2>Employment</h2>
     <EmploymentGroup
       company="Cloaked"
@@ -73,6 +78,7 @@ import EmploymentGroup from "../layouts/EmploymentGroup.astro";
         "Improved user experience by integrating direct customer feedback through user interviews and behavior surveys, leading to data-driven product improvements.",
         "Developed backend systems and payment APIs, and built multiple server-side pages using Python, Flask, and Jinja, ensuring secure and efficient backend infrastructure.",
         "Collaborated with support teams to troubleshoot and resolve live user issues, ensuring high customer satisfaction and swift issue resolution.",
+        "Mentored and led a team of interns, guiding them to transition into high-performing full-time software engineers, contributing to long-term organizational success.",
       ]}
     />
     <EmploymentGroup
@@ -88,5 +94,12 @@ import EmploymentGroup from "../layouts/EmploymentGroup.astro";
         "Optimized third-party integration processes, enhancing code efficiency and boosting application performance and user experience.",
       ]}
     />
+  </section>
+  <section class="section-wrapper" id="skills">
+    <h2>Skills</h2>
+    <p class="skills">
+      Leadership • Management • Team Growth and Development Javascript • Python
+      • Vue • React • React Native • Astro • YAML • HTML • CSS/SCSS
+    </p>
   </section>
 </Layout>

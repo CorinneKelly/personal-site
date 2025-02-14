@@ -27,9 +27,17 @@ const { title, description, heroVideo } = Astro.props;
           text-align: center;
           line-height: 1;
           margin: 0;
+          padding: 0;
           p {
             line-height: 1.5;
             margin-bottom: 0.5em;
+          }
+          h1 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
           }
         }
         &__last-updated {
@@ -45,6 +53,59 @@ const { title, description, heroVideo } = Astro.props;
             box-shadow: var(--box-shadow);
           }
         }
+        &__button {
+          align-items: center;
+          appearance: none;
+          color: rgb(var(--gray-dark));
+          border-style: none;
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: 600;
+          padding: 12px 20px;
+          border-radius: 12px;
+          display: inline-flex;
+          justify-content: center;
+          line-height: normal;
+          overflow: visible;
+          position: relative;
+          text-align: center;
+          text-transform: none;
+          text-decoration: none;
+          transition:
+            opacity 15ms linear 30ms,
+            transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+          outline: none;
+
+          &:hover {
+            background-color: #fff;
+            box-shadow:
+              rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+              rgba(0, 0, 0, 0.14) 0 6px 10px 0,
+              rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+            transform: scale(1.05);
+            transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+          }
+          &:active {
+            box-shadow:
+              0 4px 4px 0 rgb(60 64 67 / 30%),
+              0 8px 12px 6px rgb(60 64 67 / 15%);
+            transform: scale(0.95);
+            outline: none;
+            transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+        &__download {
+          height: 44px;
+          width: 44px;
+          padding: 0;
+          border-radius: 50%;
+          img {
+            z-index: -1;
+          }
+        }
       }
     </style>
   </head>
@@ -55,7 +116,23 @@ const { title, description, heroVideo } = Astro.props;
       <article>
         <div class="resume-page__prose">
           <div class="resume-page__title">
-            <h1>{title}</h1>
+            <h1>
+              {title}
+              <a
+                class="resume-page__button resume-page__download"
+                href="CorinneKellyResume.pdf"
+                download="CorinneKellyResume"
+              >
+                <img src="download-icon.webp" height="30" width="30" /></a
+              >
+            </h1>
+            <p>
+              <a class="resume-page__button" href="#education">Education</a><a
+                class="resume-page__button"
+                href="#employment">Employment</a
+              ><a class="resume-page__button" href="#skills">Skills</a>
+            </p>
+
             <p>
               Software Engineering Manager with over 8 years of experience in
               leading frontend and backend development, specializing in Vue.js,
@@ -66,6 +143,7 @@ const { title, description, heroVideo } = Astro.props;
               cross-functional teams while spearheading technical architecture
               improvements and strategic hiring initiatives.
             </p>
+
             <div class="resume-page__hero-video">
               {
                 heroVideo && (
